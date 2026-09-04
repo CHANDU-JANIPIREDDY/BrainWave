@@ -243,6 +243,13 @@ button:disabled {
   -webkit-backdrop-filter: blur(16px);
 }
 
+.topbar-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
 .topbar-copy h1 {
   margin: 0;
   font-size: 20px;
@@ -980,7 +987,9 @@ select option {
 .brand-mark {
   display: block;
   flex: 0 0 auto;
-  object-fit: contain;
+  object-fit: cover;
+  border-radius: 9px;
+  background: #000;
 }
 
 .muted { color: var(--muted); }

@@ -70,7 +70,7 @@ export default function AppShell() {
 
       <aside className="sidebar">
         <div className="sidebar-brand">
-          <BrandMark size={34} />
+          <BrandMark size={40} />
           <div className="sidebar-brand-copy">
             <strong>BrainWave</strong>
             <span>Workspace</span>
@@ -129,10 +129,11 @@ export default function AppShell() {
 
       <div className="app-main">
         <header className="topbar">
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, minWidth: 0 }}>
+          <div className="topbar-title">
             <button className="icon-btn menu-btn" type="button" onClick={() => setMobileOpen((v) => !v)} aria-label="Open menu">
               {mobileOpen ? <IconClose /> : <IconMenu />}
             </button>
+            <BrandMark size={32} />
             <div className="topbar-copy">
               {meta.crumbs?.length > 0 && (
                 <div className="crumbs">

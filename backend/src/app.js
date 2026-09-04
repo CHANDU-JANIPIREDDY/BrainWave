@@ -4,6 +4,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 
 const { env } = require('./config/env');
+const { corsOriginDelegate } = require('./config/cors');
 
 const { authRoutes } = require('./routes/authRoutes');
 const { portalRoutes } = require('./routes/portalRoutes');
@@ -13,10 +14,15 @@ const { zohoRoutes } = require('./routes/zohoRoutes');
 function createApp() {
   const app = express();
 
-  app.use(helmet());
+  app.use(
+    helmet({
+      // Frontend and API are on different Render origins.
+      crossOriginResourcePolicy: { policy: 'cross-origin' },
+    }),
+  );
   app.use(
     cors({
-      origin: env.CORS_ORIGIN,
+      origin: corsOriginDelegate(env.CORS_ORIGIN),
       credentials: true,
     }),
   );
